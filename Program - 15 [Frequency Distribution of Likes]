@@ -1,0 +1,12 @@
+import pandas as pd
+
+likes_data = pd.DataFrame({
+    'post_id': [101, 102, 103, 104, 105, 106, 107],
+    'likes': [10, 15, 10, 20, 15, 10, 20]
+})
+
+likes_freq = likes_data['likes'].value_counts().reset_index()
+likes_freq.columns = ['likes', 'frequency']
+
+print("Frequency distribution of likes among posts:")
+print(likes_freq)
