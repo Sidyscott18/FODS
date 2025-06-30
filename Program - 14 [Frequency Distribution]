@@ -1,0 +1,12 @@
+import pandas as pd
+
+sales_data = pd.DataFrame({
+    'customer_id': [1, 2, 3, 4, 5, 6, 7],
+    'age': [25, 30, 25, 40, 35, 30, 25]
+})
+
+age_freq = sales_data['age'].value_counts().reset_index()
+age_freq.columns = ['age', 'frequency']
+
+print("Frequency distribution of customer ages:")
+print(age_freq)
