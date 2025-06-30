@@ -1,0 +1,22 @@
+import pandas as pd
+from collections import Counter
+import string
+
+reviews_data = pd.DataFrame({
+    'review': [
+        "The product is great and works well.",
+        "I love this product, it exceeded my expectations!",
+        "Terrible quality, I would not recommend.",
+        "Good value for the price.",
+        "Amazing performance, very satisfied with this purchase!"
+    ]
+})
+
+all_reviews = ' '.join(reviews_data['review'])
+all_reviews = all_reviews.lower()
+all_reviews = all_reviews.translate(str.maketrans('', '', string.punctuation))
+words = all_reviews.split()
+word_freq = Counter(words)
+
+for word, freq in word_freq.items():
+    print(f"{word}: {freq}")
